@@ -211,7 +211,7 @@ function App() {
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.description}</p>
-                    <p><small><i>Completed on: {item.completedOn}</i></small></p>
+                    <p className="todo-description"><small><i>Completed on: {item.completedOn}</i></small></p>
                   </div>
                   <div>
                     <AiOutlineDelete
