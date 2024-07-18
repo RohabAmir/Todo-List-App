@@ -13,20 +13,24 @@ function App() {
   const [currentEdit, setCurrentEdit] = useState("");
   const [currentEditedItem, setCurrentEditedItem] = useState("");
 
-
-
   const handleAddTodo = () => {
+    if (newTitle.trim() === "" || newDescription.trim() === "") {
+      return;
+    }
+  
     let newTodoItem = {
       title: newTitle,
       description: newDescription,
     };
+  
     let updatedTodoArray = [...alltodos];
     updatedTodoArray.push(newTodoItem);
     setAllTodos(updatedTodoArray);
     setNewTitle("");
     setNewDescription("");
-    localStorage.setItem('todolist', JSON.stringify(updatedTodoArray))
+    localStorage.setItem('todolist', JSON.stringify(updatedTodoArray));
   };
+  
 
   const handleDeleteTodo = (index)=>{
     let reducedTodo = [...alltodos];
@@ -185,11 +189,6 @@ function App() {
                     <p>{item.description}</p>
                   </div>
                   <div>
-                    <AiOutlineDelete
-                      onClick={() => handleDeleteTodo(index)}
-                      className="icon"
-                      title="Delete?"
-                    />
                     <BsCheckLg
                       onClick={() => handleCompletedTodo(index)}
                       className="check-icon"
@@ -199,6 +198,11 @@ function App() {
                       onClick={() => handleEditTodo(index,item)}
                       className="check-icon"
                       title="Edit?"
+                    />
+                      <AiOutlineDelete
+                      onClick={() => handleDeleteTodo(index)}
+                      className="icon"
+                      title="Delete?"
                     />
                   </div>
                 </div>

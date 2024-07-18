@@ -5,18 +5,44 @@ body{
     overflow: hidden;
 }
 h1{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: uppercase;
     text-align: center;
+    color:  rgb(0,230,122);
 }
 
-.todo-wrapper{
+.todo-wrapper {
     background: #353434;
     padding: 2%;
     width: fit-content;
     margin: 0 auto;
-    margin-top: 3%;
     max-height: 80vh;
     overflow-y: auto;
     box-shadow: 0px 5px 7px rgb(27, 27, 27);
+    border-radius: 6px;
+    scrollbar-width: thin; /* for Firefox */
+    scrollbar-color: #00e67a #353434; /* for Firefox */
+}
+
+/* Custom scrollbar for WebKit browsers */
+.todo-wrapper::-webkit-scrollbar {
+    width: 12px;
+}
+
+.todo-wrapper::-webkit-scrollbar-track {
+    background: #353434;
+}
+
+.todo-wrapper::-webkit-scrollbar-thumb {
+    background-color: #00e67a;
+    border-radius: 6px;
+}
+
+.todo-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #04c46a;
 }
 
 .todo-input{
@@ -43,9 +69,10 @@ h1{
 
 }
 .todo-input-item input{
-    padding: 8px;
+    padding: 10px;
     border: none;
     width: 250px;
+    border-radius: 6px;
 
 }
 .todo-input-item input:focus{
@@ -54,9 +81,9 @@ h1{
 
 .primary-btn{
     background-color: rgb(0,230,122);
-    color: white;
+    border-radius: 6px;
     border: none;
-    margin-top: 25px;
+    margin-top: 30px;
     padding: 10px;
     width: 60px;
     cursor: pointer;
@@ -81,6 +108,7 @@ h1{
 
 .active{
     background-color: rgb(0,230,122);
+    color: #000000;
 }
 
 .btn-area{
@@ -102,6 +130,7 @@ h1{
     padding-bottom: 10px;
     margin-bottom: 10px;
     box-shadow: 0px 3px 5px rgb(43, 42,42);
+    border-radius: 6px;
 
 }
 
@@ -127,7 +156,10 @@ h1{
 
 .icon{
     font-size: 28px;
+    margin-left: 10px;
     cursor: pointer;
+    color: rgb(161, 161, 161);
+    transition: 200ms ease;
 
 }
 .icon:hover{
@@ -137,8 +169,10 @@ h1{
 .check-icon{
     font-size:  28px;
     margin-left: 10px;
-    color: rgb(0,230,122);
+    /* color: rgb(0,230,122); */
+    color: rgb(161, 161, 161);
     cursor: pointer;
+    transition: 200ms ease;
 
 }
 .check-icon:hover{
@@ -164,4 +198,87 @@ h1{
     padding: 10px;
     font-size: 16px;
     width: fit-content;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+        margin-top: 40px;
+    }
+
+    .todo-wrapper {
+        width: 90%;
+        margin-top: 5%;
+    }
+
+    .todo-input-item input {
+        width: 200px;
+    }
+
+    .primary-btn, .secondary-btn {
+        width: 90px;
+    }
+
+    .todo-list-item h3 {
+        font-size: 22px;
+    }
+
+    .todo-list-item p {
+        font-size: 16px;
+    }
+
+    .icon, .check-icon {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 650px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .todo-input {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .todo-input-item {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .todo-input-item input {
+        width: 96%;
+    }
+
+    .primary-btn, .secondary-btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .todo-list-item {
+        padding: 15px;
+    }
+
+    .todo-list-item h3 {
+        font-size: 20px;
+    }
+
+    .todo-list-item p {
+        font-size: 14px;
+    }
+
+    .icon, .check-icon {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .todo-input-item input {
+        width: 94%;
+    }
+    
 }
